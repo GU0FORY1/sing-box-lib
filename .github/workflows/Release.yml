@@ -50,26 +50,26 @@ jobs:
           unset CHECKSUM
           unset TEMP
           
-      - name: Update package file
-        run: |
-          echo "// swift-tools-version: 5.7" > Package.swift
-          echo "" >> Package.swift
-          echo "import PackageDescription" >> Package.swift
-          echo "" >> Package.swift
-          echo "let package = Package(" >> Package.swift
-          echo "  name: \"Libbox\"," >> Package.swift
-          echo "  platforms: [.iOS(.v12)]," >> Package.swift
-          echo "  products: [" >> Package.swift
-          echo "    .library(name: \"Libbox\", targets: [\"Libbox\"])" >> Package.swift
-          echo "  ]," >> Package.swift
-          echo "  targets: [" >> Package.swift
-          echo "    .binaryTarget(" >> Package.swift
-          echo "      name: \"Libbox\"," >> Package.swift
-          echo "      url: \"https://github.com/EbrahimTahernejad/sing-box-lib/releases/download/${{ github.event.inputs.version }}/Libbox.xcframework.zip\"," >> Package.swift
-          echo "      checksum: \"${{ env.FILE_CHECKSUM }}\"" >> Package.swift
-          echo "    )" >> Package.swift
-          echo "  ]" >> Package.swift
-          echo ")" >> Package.swift
+      # - name: Update package file
+      #   run: |
+      #     echo "// swift-tools-version: 5.7" > Package.swift
+      #     echo "" >> Package.swift
+      #     echo "import PackageDescription" >> Package.swift
+      #     echo "" >> Package.swift
+      #     echo "let package = Package(" >> Package.swift
+      #     echo "  name: \"Libbox\"," >> Package.swift
+      #     echo "  platforms: [.iOS(.v12)]," >> Package.swift
+      #     echo "  products: [" >> Package.swift
+      #     echo "    .library(name: \"Libbox\", targets: [\"Libbox\"])" >> Package.swift
+      #     echo "  ]," >> Package.swift
+      #     echo "  targets: [" >> Package.swift
+      #     echo "    .binaryTarget(" >> Package.swift
+      #     echo "      name: \"Libbox\"," >> Package.swift
+      #     echo "      url: \"https://github.com/EbrahimTahernejad/sing-box-lib/releases/download/${{ github.event.inputs.version }}/Libbox.xcframework.zip\"," >> Package.swift
+      #     echo "      checksum: \"${{ env.FILE_CHECKSUM }}\"" >> Package.swift
+      #     echo "    )" >> Package.swift
+      #     echo "  ]" >> Package.swift
+      #     echo ")" >> Package.swift
           
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
